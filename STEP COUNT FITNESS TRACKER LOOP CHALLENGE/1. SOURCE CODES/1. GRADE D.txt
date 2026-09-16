@@ -1,1 +1,65 @@
 
+
+
+//ASSESSMENT 3 GRADE D 
+#include <stdio.h>
+
+int main()
+{
+    int steps;
+    float kilometers;
+    float calories;
+
+    // Get the number of steps from the user
+printf("\n  ======== SOL ASSESSMENT 3 ========\n");
+    printf("  === STEP COUNT FITNESS TRACKER ===\n");
+    printf("     ====== LOOP CHALLENGE =======\n\n");
+
+    printf("      ======= GRADE D =======\n");
+    printf("  Enter steps for today: ");
+    scanf("%d", &steps);
+
+    // Convert steps to kilometers
+    kilometers = steps / 1250.0;
+
+    // Convert steps to calories burned
+    calories = (steps / 1000.0) * 40;
+
+    // Display the final output 
+    printf("\n===== DAILY ACTIVITY SUMMARY =====\n");
+    printf("Distance Walked : %.2f km\n", kilometers);
+    printf("Calories Burned : %.2f kcal\n", calories);
+
+    return 0;
+}
+
+
+
+// ANALYSIS OF GRADE D
+// 1. Ask the user to enter the number of steps completed in one day.
+
+// 2. Convert the steps into:
+// Distance in kilometers.
+// Estimated calories burned.
+
+// 3. Use these fixed conversion rates:
+// 1 kilometer = 1,250 steps
+// 1,000 steps = 40 calories
+
+// 4. Display both results rounded to 2 decimal places.
+
+// I MAINTAINED CONSISTENT OUTPUT RIGHT FROM ASSESSMENT 1
+
+
+// DISPLAY OUPTPUT 
+//==== SOL ASSESSMENT 3 ====
+  //  ===== STEP COUNT FITNESS TRACKER LOOP CHALLENGE =====
+
+    //  ======= GRADE D ========
+//Enter steps for today: 7500
+
+//===== DAILY ACTIVITY SUMMARY =====
+//Distance Walked : 6.00 km
+//Calories Burned : 300.00 kcal
+
+
