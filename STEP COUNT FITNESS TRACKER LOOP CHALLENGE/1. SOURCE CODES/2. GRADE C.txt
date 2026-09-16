@@ -1,1 +1,130 @@
+ 
+
+//ASSESSMENT 3 GRADE C 
+#include <stdio.h>
+
+int main()
+{
+    int steps;
+    float kilometers;
+    float calories;
+
+    int totalSteps = 0;
+    int totalDays = 0;
+    float totalKilometers = 0;
+    float totalCalories = 0;
+    char choice;
+    
+printf("\n  ======== SOL ASSESSMENT 3 ========\n");
+    printf("  === STEP COUNT FITNESS TRACKER ===\n");
+    printf("     ====== LOOP CHALLENGE =======\n\n");
+
+    printf("      ======= GRADE C =======\n");
+
+    do
+    {
+        printf("Enter steps for today: ");
+        scanf("%d", &steps);
+
+        // Convert steps
+        kilometers = steps / 1250.0;
+        calories = (steps / 1000.0) * 40;
+
+        // Display today's result
+        printf("\nToday's Activity\n");
+        printf("-------------------------\n");
+        printf("Distance : %.2f km\n", kilometers);
+        printf("Calories : %.2f kcal\n\n", calories);
+
+        // Update totals
+        totalDays++;
+        totalSteps += steps;
+        totalKilometers += kilometers;
+        totalCalories += calories;
+
+        // Ask user whether to continue
+        printf("Add another day? (y/n): ");
+        scanf(" %c", &choice);
+
+        printf("\n");
+
+    } while(choice == 'y' || choice == 'Y');
+
+    // Final Summary
+
+    printf("=====================================\n");
+    printf("      FITNESS TRACKER SUMMARY\n");
+    printf("=====================================\n");
+
+    printf("Days Tracked      : %d\n", totalDays);
+    printf("Total Steps       : %d\n", totalSteps);
+    printf("Total Distance    : %.2f km\n", totalKilometers);
+    printf("Total Calories    : %.2f kcal\n", totalCalories);
+
+    return 0;
+}
+
+
+
+
+//THE ANALYSIS FOR GRADE C
+
+// 1. Ask the user to enter the step count for a day.
+
+// 2. Convert the steps into:
+// Kilometers
+// Calories burned
+
+// 3. Display the results for that day.
+
+// 4. Ask whether the user wants to enter another day (y/n).
+
+//5. Keep running totals.
+
+// 6. When the user chooses to stop, display:
+// Number of days tracked
+// Total steps
+// Total distance
+// Total calories burned.
+
+
+//THE DESIGN OUTPUT 
+ // ======== SOL ASSESSMENT 3 ========
+ // === STEP COUNT FITNESS TRACKER ===
+  //   ====== LOOP CHALLENGE =======
+
+  //    ======= GRADE C =======
+//  Enter steps for today
+
+// Enter steps for today: 6000
+
+// Today's Activity
+// -------------------------
+// Distance : 4.80 km
+// Calories : 240.00 kcal
+
+// Add another day? (y/n): y
+
+// Enter steps for today: 9000
+
+// Today's Activity
+// -------------------------
+// Distance : 7.20 km
+// Calories : 360.00 kcal
+
+// Add another day? (y/n): n
+
+// =====================================
+  //    FITNESS TRACKER SUMMARY
+//=====================================
+// Days Tracked      : 2
+// Total Steps       : 15000
+// Total Distance    : 12.00 km
+// Total Calories    : 600.00 kcal
+
+
+
+
+
+
 
