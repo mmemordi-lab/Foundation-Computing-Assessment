@@ -1,1 +1,195 @@
 
+
+//ASSESSMENT 3 GRADE B
+
+#include <stdio.h>
+
+int main()
+{
+    int choice;
+    int steps;
+    int totalSteps = 0;
+
+    float kilometres;
+    float minutes;
+
+    float totalKilometres = 0.0;
+    float totalCalories = 0.0;
+
+    int stepEntries = 0;
+    int kilometreEntries = 0;
+    int minuteEntries = 0;
+
+    float calories;
+    char again;
+
+    printf("\n  ======== SOL ASSESSMENT 3 ========\n");
+    printf("  === STEP COUNT FITNESS TRACKER ===\n");
+    printf("     ====== LOOP CHALLENGE =======\n\n");
+
+    printf("      ======= GRADE B =======\n");
+
+
+    do
+    {
+        printf("\nWhat would you like to add?\n");
+        printf("1. Steps\n");
+        printf("2. Kilometres\n");
+        printf("3. Walking Minutes\n");
+
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch(choice)
+        {
+            case 1:
+
+                printf("Enter Steps: ");
+                scanf("%d", &steps);
+
+                stepEntries++;
+
+                break;
+
+            case 2:
+
+                printf("Enter Kilometres: ");
+                scanf("%f", &kilometres);
+
+                steps = kilometres * 1250;
+
+                kilometreEntries++;
+
+                break;
+
+            case 3:
+
+                printf("Enter Walking Minutes: ");
+                scanf("%f", &minutes);
+
+                steps = minutes * 100;
+
+                minuteEntries++;
+
+                break;
+
+            default:
+
+                printf("\nInvalid Menu Choice!\n");
+                continue;
+        }
+
+        calories = (steps / 1000.0) * 40;
+
+        totalSteps += steps;
+        totalKilometres = totalSteps / 1250.0;
+        totalCalories = (totalSteps / 1000.0) * 40;
+
+        printf("\nAdded %d steps.\n", steps);
+
+        printf("\nAdd another entry? (y/n): ");
+        scanf(" %c", &again);
+
+    }
+    while(again == 'y' || again == 'Y');
+
+    printf("\n=====================================\n");
+    printf(" FITNESS TRACKER SUMMARY\n");
+    printf("=====================================\n");
+
+    printf("Total Steps        : %d\n", totalSteps);
+    printf("Total Distance     : %.2f km\n", totalKilometres);
+    printf("Total Calories     : %.2f kcal\n", totalCalories);
+
+    printf("\nEntries Recorded\n");
+    printf("----------------------------\n");
+
+    printf("Steps             : %d\n", stepEntries);
+    printf("Kilometres        : %d\n", kilometreEntries);
+    printf("Walking Minutes   : %d\n", minuteEntries);
+
+    return 0;
+}
+
+
+
+
+
+
+// Grade B Analysis
+//1. Menu
+//The user chooses the type of activity to enter:
+//1. Steps
+//2. Kilometers
+//3. Walking Minutes
+
+
+//2. Conversion Rates
+//1 kilometre = 1,250 steps
+//1 walking minute = 100 steps
+//1,000 steps = 40 calories
+
+//3. So these means 
+//a. Convert every input into steps.
+//b. Update the running totals.
+//c. Count how many entries were made using:
+//Steps
+//Kilometres
+//Walking Minutes
+
+//4. Allow the user to continue or exit.
+
+//5. Display a final summary.
+
+
+//THE DESIGN OUTPUT 
+ // ======== SOL ASSESSMENT 3 ========
+ // === STEP COUNT FITNESS TRACKER ===
+//  ==   ====== LOOP CHALLENGE =======
+
+   //   ======= GRADE B =======
+
+//What would you like to add?
+
+//1. Steps
+//2. Kilometres
+//3. Walking Minutes
+
+//Enter your choice: 2
+//Enter Kilometres: 3
+
+//Added 3750 steps.
+
+//Add another entry? (y/n): y
+
+//What would you like to add?
+
+//1. Steps
+//2. Kilometres
+//3. Walking Minutes
+
+//Enter your choice: 3
+
+//Enter Walking Minutes: 30
+
+//Added 3000 steps.
+
+//Add another entry? (y/n): n
+
+//=====================================
+// FITNESS TRACKER SUMMARY
+//=====================================
+
+//Total Steps        : 6750
+//Total Distance     : 5.40 km
+//Total Calories     : 270.00 kcal
+
+//Entries Recorded
+//----------------------------
+//Steps             : 0
+//Kilometres        : 1
+//Walking Minutes   : 1
+
+
+
+
