@@ -1,1 +1,101 @@
 
+//ASSESSMENT 4 GRADE D 
+#include <stdio.h>
+
+int main()
+{
+    int currentDay;
+    int currentMonth;
+
+    int eventDay;
+    int eventMonth;
+
+    int currentDate;
+    int eventDate;
+
+    int daysRemaining;
+
+    printf("\n  ======== SOL ASSESSMENT 4 ========\n");
+    printf("  === EVENT COUNTDOWN PLANNER 2026 ===\n");
+
+    printf("      ======= GRADE D =======\n\n");
+
+    printf("Enter Current Day: ");
+    scanf("%d", &currentDay);
+
+    printf("Enter Current Month: ");
+    scanf("%d", &currentMonth);
+
+    printf("Enter Event Day: ");
+    scanf("%d", &eventDay);
+
+    printf("Enter Event Month: ");
+    scanf("%d", &eventMonth);
+
+    // Convert dates using 30-day months */
+
+    currentDate = ((currentMonth - 1) * 30) + currentDay;
+
+    eventDate = ((eventMonth - 1) * 30) + eventDay;
+
+    daysRemaining = eventDate - currentDate;
+
+    if(daysRemaining < 0)
+    {
+        printf("\nError: Event date has already passed.\n");
+    }
+    else
+    {
+        printf("\nApproximate Days Until Event: %d days\n", daysRemaining);
+    }
+
+    return 0;
+}
+
+
+
+
+
+//ANALYSIS FOR GRADE D 
+//1. Ask the user for:
+//Current day
+//Current month
+//Event day
+//Event month
+
+//2. Assume every month has 30 days
+
+//3. Convert both dates into approximate day numbers
+
+//4.  Calculate the approximate number of days until the event
+
+//5. Display the number of days remaining
+
+//6. If the event date is before the current date, display an error message
+
+
+//THE DESIGN OUTPUT 
+//  ======== SOL ASSESSMENT 4 ========
+ // === EVENT COUNTDOWN PLANNER 2026 ===
+
+   //   ======= GRADE D =======
+
+//Enter Current Day: 10
+//Enter Current Month: 3
+//Enter Event Day: 25
+//Enter Event Month: 4
+
+//Approximate Days Until Event: 45 days
+
+
+//OUTPUT WHEN USER ENTERS A WRONG INPUT
+//Enter Current Day: 20
+//Enter Current Month: 7
+//Enter Event Day: 5
+//Enter Event Month: 6
+
+//Error: Event date has already passed.
+
+
+
+
