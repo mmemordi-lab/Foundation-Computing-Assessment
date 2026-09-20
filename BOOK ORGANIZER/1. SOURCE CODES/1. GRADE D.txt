@@ -1,1 +1,77 @@
 
+
+//ASSESSMENT 6 GRADE D
+#include <stdio.h>
+
+int main()
+{
+    char books[8][100] =
+    {
+        "Moonlight Over Lagos",
+        "Atomic Habits",
+        "The Silent Patient",
+        "Deep Work",
+        "A Brief History of Time",
+        "Rich Dad Poor Dad",
+        "Educated",
+        "Zero to One"
+    };
+
+    int i;
+
+printf("\n  ======== SOL ASSESSMENT 5 ========\n");
+    printf("  === BOOK ORGANIZER ===\n");
+
+    printf("      ======= GRADE D =======\n\n");
+
+
+    for(i = 0; i < 8; i++)
+    {
+        printf("Current Title: \"%s\"\n", books[i]);
+        printf("First Title: \"%s\"\n\n", books[0]);
+    }
+
+    return 0;
+}
+
+
+
+ANALYSIS FOR GRADE D
+Create a string array with 8 book titles in deliberately mixed alphabetical order.
+* Use a loop to print on each iteration:
+o Current Title: "<title>"
+o First Title: "<title_at_index_0>"
+* No sorting or manipulation is required at this stage.
+
+* Provide screenshots of your code and outputs.
+
+
+THE DESIGN OUTPUT 
+  ======== SOL ASSESSMENT 4 ========
+  === BOOK ORGANIZER ===
+
+      ======= GRADE D =======
+
+Current Title: "Moonlight Over Lagos"
+First Title: "Moonlight Over Lagos"
+
+Current Title: "Atomic Habits"
+First Title: "Moonlight Over Lagos"
+
+Current Title: "The Silent Patient"
+First Title: "Moonlight Over Lagos"
+
+Current Title: "Deep Work"
+First Title: "Moonlight Over Lagos"
+
+Current Title: "A Brief History of Time"
+First Title: "Moonlight Over Lagos"
+
+Current Title: "Rich Dad Poor Dad"
+First Title: "Moonlight Over Lagos"
+
+Current Title: "Educated"
+First Title: "Moonlight Over Lagos"
+
+Current Title: "Zero to One"
+First Title: "Moonlight Over Lagos"
