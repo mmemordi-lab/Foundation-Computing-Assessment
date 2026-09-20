@@ -1,1 +1,133 @@
 
+
+//ASSESSMENT 6 GRADE B 
+
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+int main()
+{
+    char books[8][100] =
+    {
+        "Moonlight Over Lagos",
+        "atomic habits",
+        "The Silent Patient",
+        "Deep Work",
+        "A Brief History of Time",
+        "Rich Dad Poor Dad",
+        "Educated",
+        "Zero to One"
+    };
+
+    char temp[100];
+    char book1[100];
+    char book2[100];
+
+    int i;
+    int j;
+
+    printf("\n  ======== SOL ASSESSMENT 6 ========\n");
+    printf("  === BOOK ORGANIZER ===\n");
+
+    printf("      ======= GRADE B =======\n\n");
+ printf("=========================================\n");
+
+    printf("\n========== BEFORE FULL SORTING ==========\n");
+
+    for(i = 0; i < 8; i++)
+    {
+        printf("%d. %s\n", i + 1, books[i]);
+    }
+
+    
+   //    GRADE B SORTING
+
+    //   The outer loop selects the position
+    //   that needs to be sorted.
+
+     //  The inner loop checks the remaining
+     //  books to find the title that belongs
+    //   in that position.
+    
+
+    for(i = 0; i < 8 - 1; i++)
+    {
+        for(j = i + 1; j < 8; j++)
+        {
+            
+           //    Make lowercase copies so that
+           //    the comparison is case-insensitive.
+           
+
+            strcpy(book1, books[j]);
+            strcpy(book2, books[i]);
+
+            for(int k = 0; book1[k] != '\0'; k++)
+            {
+                book1[k] = tolower(book1[k]);
+            }
+
+            for(int k = 0; book2[k] != '\0'; k++)
+            {
+                book2[k] = tolower(book2[k]);
+            }
+
+            
+        //       If the current book comes before
+           //    the book at position i, swap them.
+       
+
+            if(strcmp(book1, book2) < 0)
+            {
+                strcpy(temp, books[i]);
+                strcpy(books[i], books[j]);
+                strcpy(books[j], temp);
+            }
+        }
+    }
+
+    printf("\n========== AFTER FULL SORT ==========\n");
+
+    for(i = 0; i < 8; i++)
+    {
+        printf("%d. %s\n", i + 1, books[i]);
+    }
+
+    return 0;
+}
+
+
+
+// ANALYSIS OF GRADE B 
+// • Complete all previous steps.
+// • Implement a nested loop to sort the list in alphabetical order, following similar logic i.e. 
+// swapping strings with the first unsorted element of the array on each pass.
+// • Print the playlist before and after sorting.
+// • Add comments to your portfolio explaining how the sorting works.
+
+// THE DESIGN OUTPUT 
+//  ======== SOL ASSESSMENT 6 ========
+//  === BOOK ORGANIZER ===
+
+ //     ======= GRADE B =======
+
+// ========== BEFORE FULL SORT ==========
+// Moonlight Over Lagos
+// atomic habits
+// The Silent Patient
+// Deep Work
+// A Brief History of Time
+// Rich Dad Poor Dad
+// Educated
+// Zero to One
+
+// ========== AFTER FULL SORT ==========
+// 1. A Brief History of Time
+// 2. atomic habits
+// 3. Deep Work
+// 4. Educated
+// 5. Moonlight Over Lagos
+// 6. Rich Dad Poor Dad
+// 7. The Silent Patient
+// 8. Zero to One
