@@ -1,8 +1,255 @@
-Code Evidence:
-Unfortunately, I am unable to come up with the running code. I tried different options to make the code run effectively as should but, to no avail. 
+//LINK FOR GRADE A 
 
-Hence, the entire GRADE A CODE AND OUTPUT RESULTS ARE NOT AVAILABLE.
+//https://www.programiz.com/online-compiler/2puEyQSi4YLiu
 
 
-Explanation
-Unable to come up with the running code for Grade A
+//CODE FOR GRADE A 
+
+//ASSESSMENT 3 GRADE A
+
+#include <stdio.h>
+
+int main()
+{
+    int goal;
+    int day = 0;
+    int steps;
+    int totalSteps = 0;
+
+    float kilometres;
+    float calories;
+    float totalKilometres = 0;
+    float totalCalories = 0;
+    float progress;
+
+    int streak = 0;
+    int longestStreak = 0;
+
+    char intensity;
+    char again;
+
+    printf("\n  ======== SOL ASSESSMENT 3 ========\n");
+    printf("  === STEP COUNT FITNESS TRACKER ===\n");
+    printf("     ====== LOOP CHALLENGE =======\n\n");
+
+    printf("      ======= GRADE A =======\n");
+
+    /* Validate Daily Goal */
+    do
+    {
+        printf("Enter your daily step goal: ");
+        scanf("%d", &goal);
+
+        if(goal <= 0)
+        {
+            printf("Daily goal must be greater than 0.\n\n");
+        }
+
+    } while(goal <= 0);
+
+    do
+    {
+        day++;
+
+        printf("\n========== DAY %d ==========\n", day);
+
+        /* Validate Daily Steps */
+
+        do
+        {
+            printf("Enter today's steps: ");
+            scanf("%d", &steps);
+
+            if(steps < 0)
+            {
+                printf("Steps cannot be negative.\n");
+            }
+
+        } while(steps < 0);
+
+        /* Validate Activity Intensity */
+
+        do
+        {
+            printf("\nActivity Intensity\n");
+            printf("L = Light\n");
+            printf("M = Moderate\n");
+            printf("F = Fast\n");
+
+            printf("Enter intensity: ");
+            scanf(" %c", &intensity);
+
+            if(intensity!='L' && intensity!='l' &&
+               intensity!='M' && intensity!='m' &&
+               intensity!='F' && intensity!='f')
+            {
+                printf("Invalid intensity! Please enter L, M or F.\n");
+            }
+
+        } while(intensity!='L' && intensity!='l' &&
+                intensity!='M' && intensity!='m' &&
+                intensity!='F' && intensity!='f');
+
+        kilometres = steps / 1250.0;
+        calories = (steps / 1000.0) * 40;
+
+        switch(intensity)
+        {
+            case 'L':
+            case 'l':
+                calories *= 0.90;
+                break;
+
+            case 'M':
+            case 'm':
+                break;
+
+            case 'F':
+            case 'f':
+                calories *= 1.20;
+                break;
+        }
+
+        progress = ((float)steps / goal) * 100;
+
+        totalSteps += steps;
+        totalKilometres += kilometres;
+        totalCalories += calories;
+
+        if(steps >= goal)
+        {
+            streak++;
+
+            if(streak > longestStreak)
+            {
+                longestStreak = streak;
+            }
+        }
+        else
+        {
+            streak = 0;
+        }
+
+        printf("\n========== DAILY SUMMARY ==========\n");
+        printf("Steps               : %d\n", steps);
+        printf("Distance            : %.2f km\n", kilometres);
+        printf("Calories Burned     : %.2f kcal\n", calories);
+        printf("Goal Progress       : %.2f%%\n", progress);
+
+        if(progress >= 100)
+        {
+            printf("Goal Achieved!\n");
+        }
+        else
+        {
+            printf("Goal Not Achieved.\n");
+        }
+
+        printf("\nTrack another day? (y/n): ");
+        scanf(" %c", &again);
+
+    } while(again == 'y' || again == 'Y');
+
+    printf("\n=========================================\n");
+    printf("        FITNESS TRACKER REPORT\n");
+    printf("=========================================\n");
+
+    printf("Days Tracked        : %d\n", day);
+    printf("Total Steps         : %d\n", totalSteps);
+    printf("Total Distance      : %.2f km\n", totalKilometres);
+    printf("Total Calories      : %.2f kcal\n", totalCalories);
+
+    if(day > 0)
+    {
+        printf("Average Steps       : %.2f\n", (float)totalSteps / day);
+        printf("Average Distance    : %.2f km\n", totalKilometres / day);
+        printf("Average Calories    : %.2f kcal\n", totalCalories / day);
+    }
+
+    printf("Longest Goal Streak : %d Day(s)\n", longestStreak);
+
+    return 0;
+}
+
+
+
+
+
+//ANALYSIS ON GRADE A:
+// Requirements
+//1. Ask the user to set a daily step goal when the program starts.
+
+//2. After each entry, display progress as a percentage of the daily goal.
+//[[Progress = (Today's steps/Daily Goal) x100]]
+
+//3. Add an activity intensity factor that affects estimated calories burned:
+//o Light walking: no adjustment
+//o Moderate walking: +10% calories
+//o Fast walking: +20% calories
+
+//4. The intensity factor should affect the calorie calculation.
+
+//5. Include robust input validation for all user inputs:
+//o Numeric values must be positive
+//o Invalid menu choices must be handled gracefully
+//o Invalid yes/no answers must be re-entered
+//o The program should re-prompt until valid input is provided
+
+//6. Allow activity to be tracked across multiple days.
+
+//7. On exit, display:
+//o Per-day summary:
+//▪ Total steps per day
+//▪ Total kilometers per day
+// ▪ Calories burned per day
+
+//▪ Percentage of daily goal reached
+//o Overall summary:
+//▪ Total steps across all days
+//▪ Total distance across all days
+//▪ Total calories burned
+//▪ Number of days meeting or exceeding the daily step goal
+//▪ Longest streak of days meeting or exceeding the goal
+
+
+//THE DESIGN OUTPUT 
+//  ======== SOL ASSESSMENT 3 ========
+//  === STEP COUNT FITNESS TRACKER ===
+ //    ====== LOOP CHALLENGE =======
+
+    //  ======= GRADE A =======
+
+//Enter your daily step goal: 8000
+
+//========== DAY 1 ==========
+//Enter today's steps: 7500
+
+//Activity Intensity
+//L = Light
+//M = Moderate
+//F = Fast
+//Enter intensity: M
+
+//========== DAILY SUMMARY ==========
+//Steps               : 7500
+//Distance            : 6.00 km
+//Calories Burned     : 300.00 kcal
+//Goal Progress       : 93.75%
+//Goal Not Achieved.
+
+//Track another day? (y/n): n
+
+//=========================================
+     //   FITNESS TRACKER REPORT
+//=========================================
+//Days Tracked        : 1
+//Total Steps         : 7500
+//Total Distance      : 6.00 km
+//Total Calories      : 300.00 kcal
+//Average Steps       : 7500.00
+//Average Distance    : 6.00 km
+//Average Calories    : 300.00 kcal
+//Longest Goal Streak : 0 Day(s)
+
+
+
