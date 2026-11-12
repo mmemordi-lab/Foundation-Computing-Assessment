@@ -1,8 +1,203 @@
-Code Evidence:
-Unfortunately, I am unable to come up with the running code. I tried different options to make the code run effectively as should but, to no avail. 
-
-Hence, the entire GRADE C CODE AND OUTPUT RESULTS ARE NOT AVAILABLE.
 
 
-Explanation
-Unable to come up with the running code for Grade C
+LINK FOR GRADE C PROGRAM 
+https://www.programiz.com/online-compiler/1cfGUV466gl57
+
+
+
+CODE FOR GRADE C PROGRAM 
+
+//ASSESSMENT 7 GRADE C
+#include <stdio.h>
+#include <string.h>
+
+struct Item
+{
+    int id;
+    char assetTag[30];
+    char status;
+};
+
+void addItem(int id, char assetTag[], char status[])
+{
+    FILE *file;
+
+    file = fopen("loans.txt", "a");
+
+    if(file == NULL)
+    {
+        printf("Error opening file.\n");
+        return;
+    }
+
+    fprintf(file, "%d %s %c\n",
+            id,
+            assetTag,
+            status[0]);
+
+    fclose(file);
+
+    printf("\nItem added successfully.\n");
+}
+
+int searchItemById(int id)
+{
+    FILE *file;
+
+    struct Item item;
+
+    file = fopen("loans.txt", "r");
+
+    if(file == NULL)
+    {
+        return 0;
+    }
+
+    while(fscanf(file, "%d %29s %c",
+                 &item.id,
+                 item.assetTag,
+                 &item.status) == 3)
+    {
+        if(item.id == id)
+        {
+            fclose(file);
+            return 1;
+        }
+    }
+
+    fclose(file);
+
+    return 0;
+}
+
+void displayItems()
+{
+    FILE *file;
+
+    struct Item item;
+
+    file = fopen("loans.txt", "r");
+
+    if(file == NULL)
+    {
+        printf("\nNo equipment records found.\n");
+        return;
+    }
+
+    printf("\n  ======== SOL ASSESSMENT 7 ========\n");
+    printf("  === MEDIA LAB LOAN MANAGER ===\n");
+
+    printf("      ======= GRADE C =======\n\n");
+
+    printf("%-10s %-20s %-10s\n",
+           "ID", "Asset Tag", "Status");
+
+    printf("-----------------------------------------\n");
+
+    while(fscanf(file, "%d %29s %c",
+                 &item.id,
+                 item.assetTag,
+                 &item.status) == 3)
+    {
+        printf("%-10d %-20s %-10c\n",
+               item.id,
+               item.assetTag,
+               item.status);
+    }
+
+    fclose(file);
+}
+
+int main()
+{
+    int id;
+    char assetTag[30];
+    char status[2];
+
+    printf("=========================================\n");
+    printf("       MEDIA LAB LOAN MANAGER\n");
+    printf("=========================================\n");
+
+    
+      // FIRST ITEM
+    
+
+    printf("\nEnter Equipment ID: ");
+    scanf("%d", &id);
+
+    printf("Enter Asset Tag: ");
+    scanf("%29s", assetTag);
+
+    printf("Enter Status (A = Available, L = Loaned): ");
+    scanf("%1s", status);
+
+    if(searchItemById(id) == 1)
+    {
+        printf("\nError: ID already exists.\n");
+    }
+    else
+    {
+        addItem(id, assetTag, status);
+    }
+
+    
+     //  SECOND ITEM
+    
+
+    printf("\nEnter Equipment ID: ");
+    scanf("%d", &id);
+
+    printf("Enter Asset Tag: ");
+    scanf("%29s", assetTag);
+
+    printf("Enter Status (A = Available, L = Loaned): ");
+    scanf("%1s", status);
+
+    if(searchItemById(id) == 1)
+    {
+        printf("\nError: ID already exists.\n");
+    }
+    else
+    {
+        addItem(id, assetTag, status);
+    }
+
+    
+     //  THIRD ITEM
+   
+
+    printf("\nEnter Equipment ID: ");
+    scanf("%d", &id);
+
+    printf("Enter Asset Tag: ");
+    scanf("%29s", assetTag);
+
+    printf("Enter Status (A = Available, L = Loaned): ");
+    scanf("%1s", status);
+
+    if(searchItemById(id) == 1)
+    {
+        printf("\nError: ID already exists.\n");
+    }
+    else
+    {
+        addItem(id, assetTag, status);
+    }
+
+    displayItems();
+
+    return 0;
+}
+
+
+
+
+
+//ANALYSIS FOR GRADE C
+//1. Refactor functions to use parameters where appropriate:
+//• addItem(int id, char assetTag[], char status[])
+//• keep a displayItems() with no parameters
+//2. Add a function searchItemById(int id) that reads the file and displays the matching 
+//record (or a message if not found).
+// 3. Duplicate‑ID check: modify addItem(...) to refuse adding if an item with the same id 
+//already exists. If so, then print a friendly message and don’t append the file.
